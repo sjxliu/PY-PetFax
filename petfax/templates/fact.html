@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facts</title>
+  </head>
+  <body>
+    <!-- {% for pet in pets %} -->
+    <div class="pet-name-pic">
+      <h1>Facts about {{pet.pet_name}}</h1>
+      <img src="{{pet.pet_photo}}" alt="photo of pet" />
+    </div>
+    <div class="pet-fact">
+      <p>{{pet.pet_fact}}</p>
+    </div>
+    <!-- {% endfor %} -->
+    <div class="back-btn">
+      <a href="/pets">Go back</a>
+    </div>
+  </body>
+</html>
