@@ -11,16 +11,27 @@
     />
   </head>
   <body>
-    <h1>Welcome to PetFax</h1>
-    {% for pet in pets %}
-    <div class="pet">
-      <h2>{{pet.pet_name}}</h2>
-      <img src="{{ url_for('static', filename='assets/') }}{{pet.pet_photo}}" />
-      <a href="/pets/{{ pet.pet_id }}">Learn more</a>
-    </div>
-    {% endfor %}
-    <div class="add-fax-btn">
-      <a href="/facts/new"> Add Facts </a>
+    <div class="container">
+      <h1>Welcome to PetFax</h1>
+      <div class="callout">
+        Welcome to PetFax! Our mission is to find loving forever families for
+        our furry friends!
+      </div>
+      <div class="pets-container">
+        {% for pet in pets %}
+        <div class="pet">
+          <h2>{{ pet.pet_name }}</h2>
+          <img
+            src="{{ url_for('static', filename='assets/') }}{{pet.pet_photo}}"
+          />
+          <a href="/pets/{{ pet.pet_id }}">Learn more ⟩</a>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="callout">
+        We'd love to learn more fun facts!
+        <a href="/facts/new">Submit some here.</a>
+      </div>
     </div>
   </body>
 </html>
