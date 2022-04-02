@@ -1,9 +1,26 @@
 from  flask import Flask
-
+from flask_migrate import Migrate
 
 def create_app():
     app = Flask(__name__)
 
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/petfax'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    from . import models
+    models.db.init_app(app)
+
+    migrate = Migrate(app, models.db)
+
+    from . import pet
+    from . import fact
+
+    
+    app.register_blueprint(pet.bp)
+    app.register_blueprint(fact.bp)
+
+    return app
+
+# routing practice:
 
     # @app.route("/")
     # def greeting():
@@ -32,12 +49,5 @@ def create_app():
     #     return f'This post has the id {id}'
 
 
-    from . import pet
-    from . import fact
 
-    
-    app.register_blueprint(pet.bp)
-    app.register_blueprint(fact.bp)
-
-    return app
 
