@@ -12,7 +12,6 @@ def index():
     return render_template('index.html', pets=pets)
 
 
-@bp.route('/fact/<int:id>')
-def pet_fact(id):
-    pet = pets[id -1]
-    return render_template('fact.html', fact=fact)
+@bp.route('/fact/<int:pet_id>')
+def pet_fact(pet_id):
+    return render_template('fact.html', pets=pets[pet_id])

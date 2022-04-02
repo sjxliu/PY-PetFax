@@ -33,9 +33,9 @@ def create_app():
 
 
     from . import pet
-    from . import fact
+    # from . import fact
     app.register_blueprint(pet.bp)
-    app.register_blueprint(fact.bp)
+    # app.register_blueprint(fact.bp)
 
     return app
 

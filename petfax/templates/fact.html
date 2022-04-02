@@ -9,11 +9,11 @@
   <body>
     <!-- {% for pet in pets %} -->
     <div class="pet-name-pic">
-      <h1>Facts about {{pet.pet_name}}</h1>
-      <img src="{{pet.pet_photo}}" alt="photo of pet" />
+      <h1>Facts about {{pet.pet_id.pet_name}}</h1>
+      <img src="{{pet.pet_id.pet_photo}}" alt="photo of pet" />
     </div>
     <div class="pet-fact">
-      <p>{{pet.pet_fact}}</p>
+      <p>{{pet.pet_id.pet-fact}}</p>
     </div>
     <!-- {% endfor %} -->
     <div class="back-btn">
