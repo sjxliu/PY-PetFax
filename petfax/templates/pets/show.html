@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facts</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+  
+    <div class="pet-name">
+      <h1>Facts about {{pet.pet_name}}</h1>
+      <div class="pet-pic">
+        <img
+          src="{{ url_for('static', filename='assets/') }}{{ pet.pet_photo }}"
+        />
+      </div>
+    </div>
+    <div class="pet-fact">
+      <span style="font-weight: 800">Did you know?</span><br />{{ pet.pet_fact
+      }}
+    </div>
+  
+    <div class="back-btn">
+      <a href="/pets">Go back</a>
+    </div>
+  </body>
+</html>
