@@ -10,7 +10,14 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
+
   <body>
+    <div class="container">
       <h1>Fax</h1>
+      {% for facts in facts %}
+      <h4>Submitted by: {{ fact.submitter }}</h4>
+      {{ fact.fact }}
+    </div>
+    {% endfor %}
   </body>
 </html>

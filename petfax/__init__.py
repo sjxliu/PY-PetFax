@@ -6,6 +6,7 @@ def create_app():
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/petfax'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    
     from . import models
     models.db.init_app(app)
 

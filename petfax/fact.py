@@ -1,17 +1,25 @@
-from flask import (Blueprint, render_template, request)
+from flask import (Blueprint, render_template, request, redirect)
+from . import models
 
 bp = Blueprint('fact', __name__, url_prefix='/facts')
 
 @bp.route('/', methods=['GET','POST'])
 def index():
-    if request == 'POST':
-        print(request.form)
-        return redirect ('/facts')
+    if request.method == 'POST':
+        submitter = request.form['submitter']
+        fact = request.form['fact']
 
-    return 'this is the facts index'
-        
-#     return render_template('facts/index.html')
+        new_fact = models.Fact(submitter=submitter, fact=fact)
+        models.db.session.add(new_fact)
+        models.db.session.commit()
 
-# bp.route('/new')
-# def new ():
-#     return render_template('facts/new.html')
+        return redirect('/facts')
+    
+    results = models.Fact.query.all()
+   
+
+    return render_template('facts/index.html', facts=results)
+
+@bp.route('/new')
+def new(): 
+    return render_template('facts/new.html')
